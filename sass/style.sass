@@ -1,2 +1,181 @@
-body
-    color: green
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+
+.wrapper
+    max-width: 100%
+    margin: 0 auto
+
+
+.header
+    grid-area: hd
+    background-color: rgb(240, 244, 248)
+    position: relative 
+    display: flex 
+    flex-direction: column 
+    flex-grow: 0 
+    flex-shrink: 0 
+    overflow: hidden 
+    align-items: stretch 
+    align-self: stretch 
+    border-width: 0px 1px 0px 0px 
+    border-style: solid 
+    border-color: rgb(213, 217, 222) 
+    background-color: rgb(240, 244, 248) 
+    width: 322px
+
+.footer
+    grid-area: ft
+    background-color: rgb(43, 44, 51)
+    position: relative
+    display: flex 
+    flex-flow: row wrap
+    flex-grow: 0
+    flex-shrink: 0 
+    overflow: hidden 
+    align-items: center 
+    min-height: 32px 
+    max-height: 45px 
+    justify-content: space-between 
+    padding-right: 8px 
+    background-color: rgb(43, 44, 51) 
+    padding-left: 8px
+
+.content
+    grid-area: main
+    background-color: rgb(255, 255, 255)
+
+.sidebar
+    grid-area: sd
+    background-color: rgb(240, 244, 248)
+    position: relative 
+    display: flex 
+    flex-direction: column 
+    flex-grow: 0 
+    flex-shrink: 0 
+    overflow: hidden 
+    align-items: stretch 
+    align-self: stretch 
+    border-width: 1px 1px 0px 0px 
+    border-style: solid 
+    border-color: rgb(213, 217, 222) 
+    background-color: rgb(240, 244, 248) 
+    width: 322px
+
+.wrapper
+    display: grid
+    grid-template-columns: repeat(8, 1fr)
+    grid-auto-rows: minmax(100px, auto)
+    grid-template-areas: "hd hd main main main main main main main" "sd sd main main main main main main main" "ft ft ft ft   ft   ft   ft   ft   ft"
+
+.content
+    text-align: center
+    &_container
+        position: relative 
+        display: flex 
+        flex-direction: column 
+        flex-grow: 1 
+        flex-shrink: 1 
+        overflow: hidden 
+        align-items: center 
+        justify-content: center 
+        padding-left: 50px 
+        padding-right: 50px 
+        background-color: rgb(255, 255, 255) 
+        opacity: 1 
+        transition: none 0s ease 0s
+    &_title
+        position: relative 
+        display: inline 
+        flex-grow: 0 
+        flex-shrink: 0 
+        overflow: hidden 
+        white-space: pre-wrap 
+        overflow-wrap: break-word
+        font-size: 36px 
+        color: rgb(37, 36, 35) 
+        font-family: "SF Bold", "Segoe System UI Bold", "Segoe UI Bold", sans-serif 
+        font-weight: 400 
+        text-align: center 
+        word-break: break-word 
+        cursor: inherit
+    p
+        position: relative
+        display: inline
+        flex-grow: 0
+        flex-shrink: 1
+        overflow: hidden
+        white-space: pre
+        text-overflow: ellipsis
+        flex-direction: row
+        padding-bottom: 1px
+        text-align: center
+        justify-content: center
+        color: rgb(138, 141, 145)
+        font-size: 15px
+        font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif
+        font-weight: 400
+        cursor: inherit
+    &_line
+        margin: 0 auto
+        border-width: 0px 0px 1px 0px 
+        border-style: solid 
+        border-color: rgb(213, 217, 222) 
+        width: 45%
+    &_btn
+        margin: 0 auto
+        position: relative
+        display: flex
+        flex-direction: column
+        flex-grow: 0
+        flex-shrink: 0
+        overflow: hidden
+        align-items: center
+        justify-content: center
+        padding-left: 15px
+        padding-right: 15px
+        background-color: rgb(43, 44, 51)
+        border-radius: 15px
+        min-height: 30px
+        opacity: 1
+        transform: scale(1) translateX(0px) translateY(0px)
+        transition: none 0s ease 0s
+        text-overflow: ellipsis;
+        font-size: 12px
+        font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif
+        font-weight: 400
+        color: rgb(255, 255, 255)
+        cursor: inherit
+    &_footer
+        position: relative
+        display: inline
+        flex-grow: 0
+        flex-shrink: 0
+        overflow: hidden
+        white-space: pre-wrap
+        overflow-wrap: break-word
+        font-size: 15px
+        font-family: "SF Bold", "Segoe System UI Bold", "Segoe UI Bold", sans-serif
+        font-weight: 400
+        color: rgb(43, 44, 51)
+        align-self: center
+        margin-bottom: 15px
+        cursor: inherit
+        a 
+            position: relative
+            display: inline
+            flex-grow: 0
+            flex-shrink: 0
+            overflow: hidden
+            overflow-wrap: break-word
+            font-size: 15px
+            font-family: "SF Bold", "Segoe System UI Bold", "Segoe UI Bold", sans-serif
+            font-weight: 400
+            color: rgb(43, 44, 51)
+            text-decoration: underline
+            cursor: pointer
+
+    
+
