@@ -7,18 +7,46 @@ html, body
     height: 100vh
 
 .footer
-    height: 5%
-    background-color: green
+    height: 7%
+    min-height: 46px
 
 .main
-    height: 95%
-    background-color: red
+    height: 93%
     display: flex
 
 .content
     width: 75%
-    background-color: blue
+    border: 1px solid black
 
 .sidebar
     width: 25%
-    background-color: #fff
+    border: 1px solid black
+
+.footer
+    display: flex
+    flex-flow: row wrap
+    // flex-grow: 0
+    // flex-shrink: 0
+    // overflow: hidden
+    align-items: center
+    // justify-content: space-between
+    min-height: 32px
+    padding-right: 30%
+    padding-left: 8px
+    background-color: rgb(43, 44, 51)
+    font-size: 11px
+    font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif
+    font-weight: 400
+    color: rgb(213, 217, 222)
+    a 
+        font-size: 11px
+        font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif
+        font-weight: 400
+        color: rgb(213, 217, 222)
+        // margin: 4px
+        cursor: pointer
+        text-decoration: none
+    &_point
+        position: relative
+        top: -2px
+        margin: 4px
