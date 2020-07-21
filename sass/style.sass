@@ -4,6 +4,7 @@ html, body
     padding: 0
 
 .header
+    height: 160px
     grid-area: hd
     background-color: rgb(240, 244, 248)
     position: relative 
@@ -22,6 +23,7 @@ html, body
 
 .footer
     grid-area: ft
+    height: 46px
     background-color: rgb(43, 44, 51)
     position: relative
     display: flex 
@@ -30,8 +32,6 @@ html, body
     flex-shrink: 0 
     overflow: hidden 
     align-items: center 
-    min-height: 32px 
-    max-height: 45px 
     justify-content: space-between 
     padding-right: 8px 
     background-color: rgb(43, 44, 51) 
@@ -42,6 +42,7 @@ html, body
     background-color: rgb(255, 255, 255)
 
 .sidebar
+    height: 67vh
     grid-area: sd
     background-color: rgb(240, 244, 248)
     position: relative 
@@ -67,6 +68,7 @@ html, body
     grid-template-areas: "hd hd main main main main main main main" "sd sd main main main main main main main" "ft ft ft ft   ft   ft   ft   ft   ft"
 
 .content
+    min-height: 90vh
     text-align: center
     &_container
         position: relative 
@@ -191,5 +193,19 @@ html, body
             text-decoration: underline
             cursor: pointer
 
-    
+.footer
+    margin: 0
+    a 
+        margin: 4px
+        font-size: 11px
+        font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif
+        font-weight: 400
+        color: rgb(213, 217, 222)
+        cursor: pointer
+        text-decoration: none
+    font-size: 11px
+    font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif
+    font-weight: 400
+    color: rgb(213, 217, 222)
+    cursor: inherit
 

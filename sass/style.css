@@ -6,6 +6,7 @@ html, body {
 }
 
 .header {
+  height: 160px;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -42,6 +43,7 @@ html, body {
   -ms-grid-column: 1;
   -ms-grid-column-span: 9;
   grid-area: ft;
+  height: 46px;
   background-color: #2b2c33;
   position: relative;
   display: -webkit-box;
@@ -60,8 +62,6 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 32px;
-  max-height: 45px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -80,6 +80,7 @@ html, body {
 }
 
 .sidebar {
+  height: 67vh;
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -123,6 +124,7 @@ html, body {
 }
 
 .content {
+  min-height: 90vh;
   text-align: center;
 }
 
@@ -320,5 +322,24 @@ html, body {
   color: #2b2c33;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.footer {
+  margin: 0;
+  font-size: 11px;
+  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
+  font-weight: 400;
+  color: #d5d9de;
+  cursor: inherit;
+}
+
+.footer a {
+  margin: 4px;
+  font-size: 11px;
+  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
+  font-weight: 400;
+  color: #d5d9de;
+  cursor: pointer;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */
