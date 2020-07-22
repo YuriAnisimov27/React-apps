@@ -154,6 +154,53 @@ html, body {
   color: #2b2c33;
   margin: 5px;
   margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.sidebar .search {
+  position: relative;
+  height: 32px;
+  padding: 10px 8px 8px;
+  margin-top: -6px;
+}
+
+.sidebar .search_data {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+  border-radius: 5px;
+  background-color: white;
+  border-color: #d5d9de;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
+  font-weight: 400;
+  color: #8a8d91;
+  margin-bottom: 1px;
+}
+
+.sidebar .search_data .search_img {
+  height: 15px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.sidebar .search_data .search_img2 {
+  height: 32px;
+  width: 32px;
+  border-width: 0px 0px 0px 1px;
+  border-style: solid;
+  border-color: #d5d9de;
 }
 
 .container {
