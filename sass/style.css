@@ -203,6 +203,54 @@ html, body {
   border-color: #d5d9de;
 }
 
+.sidebar .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 5px;
+  border-width: 0px 0px 1px 0px;
+  border-style: solid;
+  border-color: #d5d9de;
+}
+
+.sidebar .navbar_item {
+  width: 80px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 10px;
+  color: #8a8d91;
+  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 2px;
+  cursor: inherit;
+  cursor: pointer;
+}
+
+.sidebar .navbar_item_blue {
+  color: #0078d4;
+}
+
+.sidebar .navbar img {
+  width: 30px;
+}
+
 .container {
   position: relative;
   display: -webkit-box;
