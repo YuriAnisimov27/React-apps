@@ -1,3 +1,7 @@
+* {
+  font-family: 'SF UI Text', sans-serif;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -97,7 +101,6 @@ html, body {
   border-style: solid;
   font-size: 12px;
   color: #0078d4;
-  font-family: "SF Bold", "Segoe System UI Bold", "Segoe UI Bold", sans-serif;
   font-weight: 700;
   cursor: pointer;
   background-color: #e5e4e8;
@@ -124,7 +127,6 @@ html, body {
   display: inline;
   font-size: 12px;
   color: #252423;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
 }
 
@@ -132,7 +134,6 @@ html, body {
   position: relative;
   font-size: 12px;
   color: #8a8d91;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   padding-left: 8px;
 }
@@ -183,7 +184,6 @@ html, body {
   border-style: solid;
   cursor: pointer;
   font-size: 12px;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   color: #8a8d91;
   margin-bottom: 1px;
@@ -235,7 +235,6 @@ html, body {
           align-items: center;
   font-size: 10px;
   color: #8a8d91;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   text-align: center;
   margin-top: 2px;
@@ -287,7 +286,6 @@ html, body {
   border-color: #e5e4e8;
   border-style: solid;
   font-size: 12px;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   color: #2b2c33;
 }
@@ -311,7 +309,6 @@ html, body {
   height: 24px;
   font-size: 12px;
   color: #8a8d91;
-  font-family: "SF Bold", "Segoe System UI Bold", "Segoe UI Bold", sans-serif;
   font-weight: 700;
   cursor: pointer;
 }
@@ -364,14 +361,12 @@ html, body {
   padding-left: 10px;
   font-size: 15px;
   color: #252423;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
 }
 
 .sidebar .chat_header_name .chat_top .chn_time {
   font-size: 12px;
   color: #8a8d91;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   margin-top: 3px;
   margin-bottom: 6px;
@@ -386,7 +381,6 @@ html, body {
 .sidebar .chat_header_name .chat_bottom .chn_bottom {
   font-size: 15px;
   letter-spacing: -0.2px;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   color: #8a8d91;
 }
 
@@ -418,7 +412,6 @@ html, body {
 
 .sidebar .chat_container h2 {
   font-size: 22px;
-  font-family: "SF Bold", "Segoe System UI Bold", "Segoe UI Bold", sans-serif;
   font-weight: 700;
   color: #252423;
   margin-top: 20px;
@@ -429,7 +422,6 @@ html, body {
 .sidebar .chat_container p {
   padding-left: 27px;
   font-size: 15px;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   color: #8a8d91;
   text-align: left;
@@ -468,7 +460,6 @@ html, body {
 .content_header {
   font-size: 40px;
   color: #252423;
-  font-family: "SF Bold", "Segoe System UI Bold", "Segoe UI Bold", sans-serif;
   font-weight: 400;
   text-align: center;
 }
@@ -489,14 +480,12 @@ html, body {
   padding-left: 8px;
   background-color: #2b2c33;
   font-size: 11px;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   color: #d5d9de;
 }
 
 .footer a {
   font-size: 11px;
-  font-family: "SF Regular", "Segoe System UI Regular", "Segoe UI Regular", sans-serif;
   font-weight: 400;
   color: #d5d9de;
   margin: 4px;
