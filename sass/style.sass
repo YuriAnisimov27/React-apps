@@ -16,6 +16,7 @@ html, body
     display: flex
 .content
     width: 75%
+    overflow: hidden
 .sidebar
     width: 25%
 
@@ -159,6 +160,7 @@ html, body
         img
             width: 30px
 
+
     .buttons
         position: relative
         display: flex
@@ -276,33 +278,120 @@ html, body
                 line-height: 22px
 
 
-
-
-
-
-
-
 .container
     position: relative
     display: flex
     flex-direction: column
-    flex-grow: 1
-    flex-shrink: 1
     overflow: hidden
     align-items: center
     justify-content: center
+    padding-top: 80px
     padding-left: 50px
     padding-right: 50px
     background-color: rgb(255, 255, 255)
     opacity: 1
     transition: none 0s ease 0s
-
-.content
-    &_header
-        font-size: 40px
-        color: rgb(37, 36, 35)
+    text-align: center
+    h1 
+        position: relative;
+        font-size: 40px;
+        color: rgb(37, 36, 35);
+        font-weight: 700;
+        text-align: center;
+    .content_avatar
+        margin-top: 10px
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 120px
+        height: 120px
+        background-color: rgb(43, 44, 51)
+        border-radius: 50%
+        position: relative;
+        font-size: 32px;
+        color: rgb(0, 120, 212);
+        font-weight: 700;
+        cursor: pointer
+        .avatar_circle
+            position: absolute
+            bottom: 8px
+            right: 8px
+            border-radius: 50%
+            border-color: rgb(255, 255, 255)
+            border-style: solid
+            border-width: 2px
+            width: 19px
+            height: 19px
+            background-color: rgb(77, 217, 101)
+            cursor: pointer
+    .content_post 
+        position: relative
+        padding-bottom: 8px
+        margin-top: 40px
+        border-width: 0px 0px 1px
+        border-style: solid
+        border-color: rgb(213, 217, 222)
+        max-width: 450px
+        padding-right: 90px
+        padding-left: 90px
+        color: rgb(138, 141, 145)
+        font-size: 15px
+        font-weight: 40
+        &:hover         
+            color: rgb(213, 217, 222)
+        .post_img
+            position: absolute
+            width: 40px
+            right: 0
+            bottom: 5px
+            cursor: pointer
+    .content_btn
+        margin-top: 38px
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 40px
+        border-radius: 20px
+        padding-left: 25px
+        padding-right: 25px
+        background-color: rgb(43, 44, 51)
+        font-size: 15px
+        font-weight: 700
+        color: rgb(255, 255, 255)
+    .content_text
+        margin-top: 30px
+        width: 60%
+        position: relative
+        font-size: 15px
         font-weight: 400
-        text-align: center
+        color: rgb(138, 141, 145)
+        line-height: 20px
+        span
+            color: rgb(0, 120, 212);
+    .content_login
+        margin-top: 125px
+        font-size: 15px
+        font-weight: 400;
+        color: rgb(43, 44, 51)
+        line-height: 20px
+    .hidden_text
+        margin-top: 0
+        width: 100%
+    .content_about
+        margin-top: 18px
+        a 
+            font-size: 15px
+            font-weight: 700;
+            color: rgb(0, 120, 212)
+            padding-top: 10px
+            text-decoration: underline
+
+
+
+
+
 
 .footer
     display: flex
