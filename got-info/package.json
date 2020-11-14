@@ -1,5 +1,5 @@
 {
-  "name": "react-material-ui",
+  "name": "got-info",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,9 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1"
   }
 }
