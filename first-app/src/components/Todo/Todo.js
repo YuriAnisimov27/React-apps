@@ -11,7 +11,11 @@ export default class Todo extends Component {
     return (
       <div className='todo'>
         <p>{this.props.title}</p>
-        <button onClick={() => this.props.deleteTodo(this.props.id)}>Удалить</button>
+        <button
+          className='btn btn-outline-danger'
+          onClick={() => this.props.deleteTodo(this.props.id)}>
+          Удалить
+        </button>
       </div>
     );
   }

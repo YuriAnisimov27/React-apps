@@ -1,37 +1,46 @@
 import React from 'react';
-import Todo from './Todo/Todo';
+import {Switch, Route} from 'react-router-dom';
+import AddTodo from './AddTodo/AddTodo';
+import Todos from './Todos/Todos';
+import axios from 'axios';
+import Navbar from './Navbar/Navbar';
 
 
 export default class App extends React.Component {
   state = {
-    todos: [
-      {id: 1, title: '300 Spartans'},
-      {id: 2, title: 'Kill Bill'},
-      {id: 3, title: 'Terminator 2'},
-    ],
-  }
+    todos: null,
+  };
 
   deleteTodo = (id) => {
-    this.setState({todos: this.state.todos.filter(todo => todo.id !== id)})
+    this.setState({todos: this.state.todos.filter(todo => todo.id !== id)});
+  };
+
+  addTodo = (todo) => {
+    this.setState({
+      todos: [todo, ...this.state.todos]
+    });
+  };
+
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos')
+      .then(res => {
+        this.setState({todos: res.data});
+      });
   }
 
   render() {
-    if (!this.state.todos.length) {
-      return <h1>Нет Задач</h1>
-    }
-
     return (
-      <div>
-        <h1>Список дел</h1>
-        {this.state.todos.map(({title, id}) => {
-          return (
-            <Todo
-              title={title}
-              id={id}
-              key={id}
-              deleteTodo={this.deleteTodo}/>
-          )
-        })}
+      <div className='container'>
+        <Navbar/>
+
+        <Switch>
+          <Route exact path='/' render={() => {
+            return <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>;
+          }}/>
+
+          <Route exact path='/add' render={() => <AddTodo addTodo={this.addTodo}/>}/>
+        </Switch>
+
       </div>
     );
   }
