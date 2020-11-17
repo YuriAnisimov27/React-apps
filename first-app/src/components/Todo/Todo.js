@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
 import './Todo.css';
+import {deleteTodo} from '../../store/actions/todoActions';
 
-export default class Todo extends Component {
+class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -20,3 +22,5 @@ export default class Todo extends Component {
     );
   }
 };
+
+export default connect(null, {deleteTodo})(Todo)
