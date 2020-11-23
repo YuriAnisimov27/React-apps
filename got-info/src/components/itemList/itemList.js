@@ -1,20 +1,53 @@
 import React, {Component} from 'react';
 import './itemList.css';
+import GotService from '../../services/gotService';
+import Spinner from '../spinner';
 
 export default class ItemList extends Component {
+  gotService = new GotService();
+  state = {
+    charList: null
+  };
+
+  componentDidMount() {
+    this.gotService.getAllCharacters()
+      .then((charList) => {
+        this.setState({
+          charList
+        });
+      });
+  }
+
+  fromUrlToId(url) {
+    return +url.slice(49);
+  }
+
+  renderItems(arr) {
+    return arr.map((item) => {
+      return (
+        <li
+          className="list-group-item"
+          key={this.fromUrlToId(item.url)}
+          onClick={() => this.props.onCharSelected(this.fromUrlToId(item.url))}
+        >
+          {item.name}
+        </li>
+      );
+    });
+  }
 
   render() {
+    const {charList} = this.state;
+
+    if (!charList) {
+      return <Spinner/>;
+    }
+
+    const items = this.renderItems(charList);
+
     return (
       <ul className="item-list list-group">
-        <li className="list-group-item">
-          John Snow
-        </li>
-        <li className="list-group-item">
-          Brandon Stark
-        </li>
-        <li className="list-group-item">
-          Geremy
-        </li>
+        {items}
       </ul>
     );
   }
