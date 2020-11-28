@@ -18,18 +18,19 @@ export default class ItemList extends Component {
       });
   }
 
+  fromUrlToId(url) {
+    return +url.slice(49);
+  }
+
   renderItems(arr) {
     return arr.map((item) => {
-      const {id} = item;
-
-      const label = this.props.renderItem(item);
-
       return (
         <li
-          key={id}
           className="list-group-item"
-          onClick={() => this.props.onItemSelected(id)}>
-          {label}
+          key={this.fromUrlToId(item.url)}
+          onClick={() => this.props.onCharSelected(this.fromUrlToId(item.url))}
+        >
+          {item.name}
         </li>
       );
     });
@@ -43,6 +44,7 @@ export default class ItemList extends Component {
     }
 
     const items = this.renderItems(itemList);
+
     return (
       <ul className="item-list list-group">
         {items}
