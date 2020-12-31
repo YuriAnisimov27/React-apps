@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
-import ItemStatusFilter from '../item-status-filter';
 import TodoList from '../todo-list';
+import ItemAddForm from '../item-add-form';
+import ItemStatusFilter from '../item-status-filter';
 import './app.css';
 
 export default class App extends Component {
@@ -19,7 +20,21 @@ export default class App extends Component {
       const newTodoData = todoData.filter(el => el.id !== id);
       return {
         todoData: newTodoData
-      }
+      };
+    });
+  };
+
+  addItem = (text) => {
+    const newItem = {
+      label: text,
+      important: false,
+      id: Date.now()
+    };
+    this.setState(({todoData}) => {
+      const newTodoData = [...todoData, newItem];
+      return {
+        todoData: newTodoData
+      };
     });
   };
 
@@ -32,6 +47,7 @@ export default class App extends Component {
           <ItemStatusFilter/>
         </div>
         <TodoList todos={this.state.todoData} onDeleted={this.deleteItem}/>
+        <ItemAddForm onAdded={this.addItem}/>
       </div>
     );
   }
