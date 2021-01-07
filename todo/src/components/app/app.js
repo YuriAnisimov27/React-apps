@@ -78,6 +78,22 @@ export default class App extends Component {
     });
   };
 
+  onSelectFilter = (flag) => {
+    let newArr;
+    if (flag === 'Done') {
+      newArr = [...this.state.todoData].filter(el => el.done);
+    } else if (flag === 'Active') {
+      newArr = [...this.state.todoData].filter(el => !el.done);
+    } else {
+      newArr = [...this.state.todoData];
+    }
+    this.setState(() => {
+      return {
+        term: newArr
+      };
+    });
+  };
+
   render() {
     const todoData = this.state.term || this.state.todoData;
     const doneTodos = this.state.todoData.filter(el => el.done).length;
@@ -88,7 +104,7 @@ export default class App extends Component {
         <AppHeader toDo={allMoreTodos} done={doneTodos}/>
         <div className="top-panel d-flex">
           <SearchPanel onSearchItem={this.onSearchItem}/>
-          <ItemStatusFilter/>
+          <ItemStatusFilter onSelectFilter={this.onSelectFilter}/>
         </div>
         <TodoList
           todos={todoData}
