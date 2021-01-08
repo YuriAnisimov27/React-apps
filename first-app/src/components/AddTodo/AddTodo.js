@@ -35,6 +35,6 @@ class AddTodo extends Component {
       </form>
     );
   }
-};
+}
 
 export default connect(null, {addTodo})(AddTodo)
