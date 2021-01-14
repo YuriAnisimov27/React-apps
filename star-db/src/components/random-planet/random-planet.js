@@ -8,6 +8,7 @@ export default class RandomPlanet extends Component {
   constructor(props) {
     super(props);
     this.updatePlanet();
+    this.interval = setInterval(this.updatePlanet, 5000);
   }
 
   state = {
