@@ -45,11 +45,12 @@ export default class App extends Component {
 
         <button
           className="toggle-planet btn btn-warning btn-lg"
-          onClick={this.toggleRandomPlanet} style={{marginBottom: '30px'}}>
+          onClick={this.toggleRandomPlanet}
+          style={{marginBottom: '30px'}}>
           Toggle Random Planet
         </button>
 
-        <ErrorButton/>
+        <ErrorButton />
 
         <PeoplePage/>
 
