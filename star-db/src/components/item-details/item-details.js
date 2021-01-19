@@ -55,6 +55,8 @@ export default class ItemDetails extends Component {
       id, name, gender, birthYear, eyeColor
     } = item;
 
+    console.log(id, name, gender, birthYear, eyeColor)
+
     const {image} = this.state;
 
     return (
