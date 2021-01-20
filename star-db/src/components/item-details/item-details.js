@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 import ErrorButton from '../error-button';
 import './item-details.css';
@@ -18,8 +17,6 @@ export default class ItemDetails extends Component {
     item: null,
     image: null
   };
-
-  swapiService = new SwapiService();
 
   componentDidMount() {
     this.updateItem();
@@ -45,19 +42,12 @@ export default class ItemDetails extends Component {
   };
 
   render() {
-    if (!this.state.item) {
+    const {item, image} = this.state;
+    if (!item) {
       return <Spinner/>;
     }
 
-    const {item} = this.state;
-
-    const {
-      id, name, gender, birthYear, eyeColor
-    } = item;
-
-    console.log(id, name, gender, birthYear, eyeColor)
-
-    const {image} = this.state;
+    const {name} = item;
 
     return (
       <div className="item-details card">

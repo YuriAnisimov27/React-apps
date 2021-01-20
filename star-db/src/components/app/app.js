@@ -10,6 +10,8 @@ import Row from '../row';
 import ItemDetails from '../item-details';
 import {Record} from '../item-details/item-details';
 import './app.css';
+import ErrorBoundry from '../error-boundry';
+import {PersonDetails, PersonList, PlanetDetails, StarshipDetails, StarshipList} from '../sw-components';
 
 export default class App extends Component {
   state = {
@@ -58,63 +60,41 @@ export default class App extends Component {
     );
 
     return (
-      <div className="stardb-app">
-        <Header/>
-        {planet}
-        <button
-          className="toggle-planet btn btn-warning btn-lg"
-          onClick={this.toggleRandomPlanet}
-          style={{marginBottom: '30px'}}>
-          Toggle Random Planet
-        </button>
+      <ErrorBoundry>
+        <div className="stardb-app">
+          <Header/>
+          {planet}
+          <button
+            className="toggle-planet btn btn-warning btn-lg"
+            onClick={this.toggleRandomPlanet}
+            style={{marginBottom: '30px'}}>
+            Toggle Random Planet
+          </button>
 
-        <ErrorButton/>
+          <ErrorButton/>
 
-        {/*<PeoplePage/>*/}
+          <PersonDetails itemId={1}/>
+          <PlanetDetails itemId={5}/>
+          {/*<StarshipDetails itemId={7}/>*/}
 
-        {/*<Row left={personDetails} right={starShipDetails}/>*/}
+          <PersonList>
+            {({name}) => <span>{name}</span>}
+          </PersonList>
 
-        <ItemList
-          getData={getAllPeople}
-          onItemSelected={() => {
-          }}>
+          <PersonList>
+            {({name}) => <span>{name}</span>}
+          </PersonList>
 
-          {({name}) => <span>{name}</span>}
-        </ItemList>
+          <StarshipList>
+            {({name}) => <span>{name}</span>}
+          </StarshipList>
 
-        <ItemList
-          getData={getAllPlanets}
-          onItemSelected={() => {
-          }}>
+          {/*<ItemList getData={getAllPlanets}>*/}
+          {/*  {({name}) => <span>{name}</span>}*/}
+          {/*</ItemList>*/}
 
-          {({name}) => <span>{name}</span>}
-        </ItemList>
-
-        {/*<div className="row mb2">*/}
-        {/*  <div className="col-md-6">*/}
-        {/*    <ItemList*/}
-        {/*      onItemSelected={this.onPersonSelected}*/}
-        {/*      getData={this.swapiService.getAllPlanets}*/}
-        {/*      renderItem={(item) => (<span>{item.name}</span>)} />*/}
-        {/*  </div>*/}
-        {/*  <div className="col-md-6">*/}
-        {/*    /!*<ItemDetails personId={this.state.selectedPerson}/>*!/*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-
-        {/*<div className="row mb2">*/}
-        {/*  <div className="col-md-6">*/}
-        {/*    <ItemList*/}
-        {/*      onItemSelected={this.onPersonSelected}*/}
-        {/*      getData={this.swapiService.getAllStarships}*/}
-        {/*      renderItem={(item) => item.name} />*/}
-        {/*  </div>*/}
-        {/*  <div className="col-md-6">*/}
-        {/*    /!*<ItemDetails personId={this.state.selectedPerson}/>*!/*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-
-      </div>
+        </div>
+      </ErrorBoundry>
     );
   }
 }
