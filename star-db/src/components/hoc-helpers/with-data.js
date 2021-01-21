@@ -28,3 +28,4 @@ const withData = (View, getData) => {
 };
 
 export default withData;
+
