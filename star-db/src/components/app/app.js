@@ -2,25 +2,18 @@ import React, {Component} from 'react';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorButton from '../error-button';
-import ErrorIndicator from '../error-indicator';
 import ErrorBoundry from '../error-boundry';
 import {PersonDetails, PersonList, PlanetDetails, PlanetList, StarshipDetails, StarshipList} from '../sw-components';
 import {SwapiServiceProvider} from '../swapi-service-context';
 import DummySwapiService from '../../services/dummy-swapi-service';
-// import SwapiService from '../../services/swapi-service';
+import SwapiService from '../../services/swapi-service';
 import './app.css';
 
 export default class App extends Component {
   state = {
     showRandomPlanet: true,
-    hasError: false
+    swapiService: new SwapiService()
   };
-
-  swapiService = new DummySwapiService();
-
-  componentDidCatch(error, errorInfo) {
-    this.setState({hasError: true});
-  }
 
   toggleRandomPlanet = () => {
     this.setState((state) => {
@@ -30,18 +23,23 @@ export default class App extends Component {
     });
   };
 
-  render() {
-    if (this.state.hasError) {
-      return <ErrorIndicator/>;
-    }
+  onServiceChange = () => {
+    this.setState(({swapiService}) => {
+      const Service = swapiService instanceof SwapiService ? DummySwapiService : SwapiService;
+      return {
+        swapiService: new Service()
+      };
+    });
+  };
 
+  render() {
     const planet = this.state.showRandomPlanet ? <RandomPlanet/> : null;
 
     return (
       <ErrorBoundry>
-        <SwapiServiceProvider value={this.swapiService}>
+        <SwapiServiceProvider value={this.state.swapiService}>
           <div className="stardb-app">
-            <Header/>
+            <Header onServiceChange={this.onServiceChange}/>
             {planet}
             <button
               className="toggle-planet btn btn-warning btn-lg"
@@ -51,7 +49,7 @@ export default class App extends Component {
             </button>
             <ErrorButton/>
 
-            <PersonDetails itemId={1}/>
+            <PersonDetails itemId={11}/>
             <PlanetDetails itemId={5}/>
             <StarshipDetails itemId={5}/>
 
