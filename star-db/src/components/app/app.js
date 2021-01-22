@@ -3,11 +3,12 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorButton from '../error-button';
 import ErrorIndicator from '../error-indicator';
-import SwapiService from '../../services/swapi-service';
-import './app.css';
 import ErrorBoundry from '../error-boundry';
 import {PersonDetails, PersonList, PlanetDetails, PlanetList, StarshipDetails, StarshipList} from '../sw-components';
 import {SwapiServiceProvider} from '../swapi-service-context';
+import DummySwapiService from '../../services/dummy-swapi-service';
+// import SwapiService from '../../services/swapi-service';
+import './app.css';
 
 export default class App extends Component {
   state = {
@@ -15,7 +16,7 @@ export default class App extends Component {
     hasError: false
   };
 
-  swapiService = new SwapiService();
+  swapiService = new DummySwapiService();
 
   componentDidCatch(error, errorInfo) {
     this.setState({hasError: true});
