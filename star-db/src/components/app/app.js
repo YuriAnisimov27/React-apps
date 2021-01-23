@@ -3,8 +3,8 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorButton from '../error-button';
 import ErrorBoundry from '../error-boundry';
-import {PersonDetails, PersonList, PlanetDetails, PlanetList, StarshipDetails, StarshipList} from '../sw-components';
 import {SwapiServiceProvider} from '../swapi-service-context';
+import {PeoplePage, PlanetsPage, StarshipsPage} from '../pages';
 import DummySwapiService from '../../services/dummy-swapi-service';
 import SwapiService from '../../services/swapi-service';
 import './app.css';
@@ -49,13 +49,10 @@ export default class App extends Component {
             </button>
             <ErrorButton/>
 
-            <PersonDetails itemId={11}/>
-            <PlanetDetails itemId={5}/>
-            <StarshipDetails itemId={5}/>
+            <PeoplePage/>
+            <PlanetsPage/>
+            <StarshipsPage/>
 
-            <PersonList/>
-            <PlanetList/>
-            <StarshipList/>
           </div>
         </SwapiServiceProvider>
       </ErrorBoundry>
