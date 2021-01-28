@@ -9,6 +9,7 @@ import DummySwapiService from '../../services/dummy-swapi-service';
 import SwapiService from '../../services/swapi-service';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './app.css';
+import {PersonDetails, PlanetDetails, StarshipDetails} from '../sw-components';
 
 export default class App extends Component {
   state = {
@@ -51,9 +52,13 @@ export default class App extends Component {
               </button>
               <ErrorButton/>
 
-              <Route path='/people' component={PeoplePage} />
-              <Route path='/planets' component={PlanetsPage} />
-              <Route path='/starships' component={StarshipsPage} />
+              <Route path='/' exact render={() => <h1>Welcome!</h1>}/>
+              <Route path='/people' exact component={PeoplePage}/>
+              <Route path='/people/:id' render={({match}) => <PersonDetails itemId={match.params.id}/>}/>
+              <Route path='/planets' exact component={PlanetsPage}/>
+              <Route path='/planets/:id' render={({match}) => <PlanetDetails itemId={match.params.id}/>}/>
+              <Route path='/starships' exact component={StarshipsPage}/>
+              <Route path='/starships/:id' render={({match}) => <StarshipDetails itemId={match.params.id}/>}/>
 
             </div>
           </Router>
