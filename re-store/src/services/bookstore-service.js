@@ -1,11 +1,10 @@
-
 export default class BookstoreService {
 
   getBooks() {
     return [
-      {id: 1, name: 'HTML'},
-      {id: 2, name: 'CSS'},
-      {id: 3, name: 'JS'},
-    ]
+      {id: 1, title: 'HTML', author: 'Cherchesov'},
+      {id: 2, title: 'CSS', author: 'Onopko'},
+      {id: 3, title: 'JS', author: 'Arshavin'},
+    ];
   }
 }
