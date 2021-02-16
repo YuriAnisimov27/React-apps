@@ -1,0 +1,2 @@
+run server:
+json-server src/db.json
