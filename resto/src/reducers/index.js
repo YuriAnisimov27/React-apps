@@ -45,7 +45,15 @@ const reducer = (state = initialState, action) => {
           newItem
         ]
       };
+    case 'REMOVE_ITEM_FROM_CART':
+      console.log(action.type)
+      const idx = action.payload;
+      const newItems = state.items.filter(item => item.id !== idx);
 
+      return {
+        ...state,
+        items: newItems
+      };
     default:
       return state;
   }

@@ -46,14 +46,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-
 const mapDispatchToProps = {
   menuLoaded: menuLoaded,
   menuRequested,
   menuError,
   addedToCart
 };
-
 
 const View = ({items}) => {
 
