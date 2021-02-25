@@ -1,19 +1,21 @@
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import {useState} from 'react';
 import {Link} from 'react-router-dom';
+import useFetch from '../../hooks/useFetch';
 
 
 const Authentication = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [{response, isLoading, error}, doFetch] = useFetch('/users/login');
 
-  useEffect(() => {
-    if (!isSubmitting) {
-      return;
-    }
+  console.log('useFetch', response, isLoading, error);
 
-    axios('https://conduit.productionready.io/api/users/login', {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log('data', email, password);
+
+    doFetch({
       method: 'post',
       data: {
         user: {
@@ -21,18 +23,7 @@ const Authentication = () => {
           password: '123456'
         }
       }
-    })
-      .then(res => console.log('success', res))
-      .catch(err => console.error('error', err))
-      .finally(() => setIsSubmitting(false));
-
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setIsSubmitting(true);
-    console.log(email, password);
+    });
   };
 
   return (
@@ -69,7 +60,7 @@ const Authentication = () => {
 
                 <button
                   type='submit'
-                  className='btn btn-lg btn-primary pull-xs-right' disabled={isSubmitting}>
+                  className='btn btn-lg btn-primary pull-xs-right' disabled={isLoading}>
                   Sing In
                 </button>
               </fieldset>
