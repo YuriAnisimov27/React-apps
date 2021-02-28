@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 
 
@@ -13,13 +13,20 @@ const Authentication = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUserName] = useState('');
+  const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false);
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl);
+
+  useEffect(() => {
+    if (!response) {
+      return;
+    }
+    localStorage.setItem('token', response.user.token);
+    setIsSuccessfulSubmit(true);
+  }, [response]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = isLogin ? {email, password} : {email, password, username};
-
-    console.log('data', user);
 
     doFetch({
       method: 'post',
@@ -28,6 +35,10 @@ const Authentication = (props) => {
       }
     });
   };
+
+  if (isSuccessfulSubmit) {
+    return <Redirect to='/'/>;
+  }
 
   return (
     <div className='auth-page'>
