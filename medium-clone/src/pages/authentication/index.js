@@ -15,10 +15,10 @@ const Authentication = (props) => {
   const [password, setPassword] = useState('');
   const [username, setUserName] = useState('');
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false);
-  const [{response, isLoading, error}, doFetch] = useFetch(apiUrl);
+  const [{response, isLoading}, doFetch] = useFetch(apiUrl);
   const [token, setToken] = useLocalStorage('token');
 
-  console.log('ToKeN', token);
+  console.log('token', token);
 
   useEffect(() => {
     if (!response) {
@@ -26,7 +26,7 @@ const Authentication = (props) => {
     }
     setToken(response.user.token);
     setIsSuccessfulSubmit(true);
-  }, [response]);
+  }, [response, setToken]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
