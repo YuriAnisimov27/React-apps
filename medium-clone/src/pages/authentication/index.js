@@ -19,9 +19,9 @@ const Authentication = (props) => {
   const [isSuccessfulSubmit, setIsSuccessfulSubmit] = useState(false);
   const [{response, isLoading, error}, doFetch] = useFetch(apiUrl);
   const [, setToken] = useLocalStorage('token');
-  const [, setCurrentUserState] = useContext(CurrentUserContext);
+  const [currentUserState, setCurrentUserState] = useContext(CurrentUserContext);
 
-  // console.log('currentUserState', currentUserState);
+  console.log('currentUserState', currentUserState);
 
   useEffect(() => {
     if (!response) {
