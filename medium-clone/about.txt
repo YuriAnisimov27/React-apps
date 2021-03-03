@@ -1,0 +1,8 @@
+username:
+helloworld666
+
+email:
+helloworld@hello.world
+
+password:
+helloworld666
