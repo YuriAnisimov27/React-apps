@@ -1,6 +1,26 @@
-const Pagination = ({total, limit, url, currentPage}) => {
+import {range} from '../utils';
+import {Link} from 'react-router-dom';
+
+const PaginationItem = ({page, currentPage, url}) => {
   return (
-    <h1>Pagination</h1>
+    <li className='page-item'>
+      <Link to={`${url}?page=${page}`} className='page-link'>
+        {page}
+      </Link>
+    </li>
+  );
+};
+
+const Pagination = ({total, limit, url, currentPage}) => {
+  const pagesCount = Math.ceil(total / limit);
+  const pages = range(1, pagesCount);
+
+  return (
+    <ul className='pagination'>
+      {pages.map(page => (
+        <PaginationItem page={page} currentPage={currentPage} url={url} key={page}/>
+      ))}
+    </ul>
   );
 };
 
