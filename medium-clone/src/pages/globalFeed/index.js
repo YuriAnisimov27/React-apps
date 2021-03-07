@@ -7,6 +7,7 @@ import {stringify} from 'query-string';
 import PopularTags from '../../components/popularTags';
 import Loading from '../../components/loading';
 import ErrorMessage from '../../components/errorMessage';
+import FeedToggler from '../../components/feedToggler';
 
 
 const GlobalFeed = ({location, match}) => {
@@ -35,6 +36,7 @@ const GlobalFeed = ({location, match}) => {
       <div className='container page'>
         <div className='row'>
           <div className='col-md-9'>
+            <FeedToggler/>
             {isLoading && <Loading/>}
             {error && <ErrorMessage/>}
             {!isLoading && response && (
