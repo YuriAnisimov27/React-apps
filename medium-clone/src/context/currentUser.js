@@ -1,4 +1,4 @@
-import {createContext, useState} from 'react';
+import {createContext, useReducer} from 'react';
 
 
 const initialState = {
@@ -32,17 +32,12 @@ const reducer = (state, action) => {
   }
 };
 
-export const CurrentUserContext = createContext([{}, () => {
-}]);
+export const CurrentUserContext = createContext();
 export const CurrentUserProvider = ({children}) => {
-  const [state, setState] = useState({
-    isLoading: false,
-    isLoggedIn: null,
-    currentUser: null
-  });
+  const value = useReducer(reducer, initialState);
 
   return (
-    <CurrentUserContext.Provider value={[state, setState]}>
+    <CurrentUserContext.Provider value={value}>
       {children}
     </CurrentUserContext.Provider>
   );
