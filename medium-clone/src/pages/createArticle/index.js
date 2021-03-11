@@ -9,7 +9,7 @@ const CreateArticle = () => {
 
   return (
     <div>
-      <ArticleForm errors={errors} initialValues={initialValues} onSubmit={handleSubmit()}/>
+      <ArticleForm errors={errors} initialValues={initialValues} onSubmit={handleSubmit}/>
     </div>
   );
 };

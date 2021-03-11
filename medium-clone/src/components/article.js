@@ -10,6 +10,7 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
   const handleSubmit = event => {
     event.preventDefault();
     onSubmit({foo: 'foo'});
+    console.log('form data', title, description, body, tagList);
   };
 
   return (
@@ -22,21 +23,30 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
               <fieldset>
                 <fieldset className='form-group'>
                   <input type="text" className='form-control form-control-lg'
-                         placeholder='Article title'/>
+                         placeholder='Article title'
+                         value={title}
+                         onChange={e => setTitle(e.target.value)}/>
                 </fieldset>
 
                 <fieldset className='form-group'>
                   <input type="text" className='form-control form-control-lg'
-                         placeholder='What Is This Article About?'/>
+                         placeholder='What Is This Article About?'
+                         value={description}
+                         onChange={e => setDescription(e.target.value)}/>
                 </fieldset>
 
                 <fieldset className='form-group'>
                   <textarea className='form-control' rows="8"
-                            placeholder='Write Your Article (in markdown)'/>
+                            placeholder='Write Your Article (in markdown)'
+                            value={body}
+                            onChange={e => setBody(e.target.value)}/>
                 </fieldset>
 
                 <fieldset className='form-group'>
-                  <input type="text" className='form-control form-control-lg' placeholder='Enter Tags'/>
+                  <input type="text" className='form-control form-control-lg'
+                         placeholder='Enter Tags'
+                         value={tagList}
+                         onChange={e => setTagList(e.target.value)}/>
                 </fieldset>
 
                 <fieldset className='form-group'>
