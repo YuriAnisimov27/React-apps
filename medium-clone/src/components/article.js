@@ -8,12 +8,18 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
   const [description, setDescription] = useState('');
   const [tagList, setTagList] = useState('');
 
-  console.log('initial values', initialValues);
+  // console.log('initial values', initialValues);
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit({foo: 'foo'});
-    console.log('form data', title, description, body, tagList);
+    const article = {
+      title,
+      body,
+      description,
+      tagList
+    };
+    onSubmit(article);
+    // console.log('form data', title, description, body, tagList);
   };
 
   useEffect(() => {
