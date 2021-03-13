@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 
 const ArticleForm = ({onSubmit, errors, initialValues}) => {
@@ -7,11 +7,24 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
   const [description, setDescription] = useState('');
   const [tagList, setTagList] = useState('');
 
+  console.log('initial values', initialValues);
+
   const handleSubmit = event => {
     event.preventDefault();
     onSubmit({foo: 'foo'});
     console.log('form data', title, description, body, tagList);
   };
+
+  useEffect(() => {
+    if (!initialValues) {
+      return;
+    }
+
+    setTitle(initialValues.title);
+    setDescription(initialValues.description);
+    setBody(initialValues.body);
+    setTagList(initialValues.tagList);
+  }, [initialValues]);
 
   return (
     <div className='editor-page'>

@@ -1,15 +1,31 @@
 import ArticleForm from '../../components/article';
+import useFetch from '../../hooks/useFetch';
 
 const CreateArticle = () => {
-  const errors = {};
-  const initialValues = {};
-  const handleSubmit = data => {
-    console.log('handle submit', data);
+  const apiUrl = '/articles';
+  const [{response, error}, doFetch] = useFetch(apiUrl);
+  const initialValues = {
+    title: 'Default Article Title',
+    description: '',
+    body: '',
+    tagList: []
+  };
+  const handleSubmit = article => {
+    console.log('handle submit', article);
+    doFetch({
+      method: 'post',
+      data: {
+        article
+      }
+    });
   };
 
   return (
     <div>
-      <ArticleForm errors={errors} initialValues={initialValues} onSubmit={handleSubmit}/>
+      <ArticleForm
+        errors={(error && error.errors) || {}}
+        initialValues={initialValues}
+        onSubmit={handleSubmit}/>
     </div>
   );
 };
