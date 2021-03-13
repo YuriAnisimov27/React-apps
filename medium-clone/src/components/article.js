@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import BackendErrorMessages from './backendErrorMessages';
 
 
 const ArticleForm = ({onSubmit, errors, initialValues}) => {
@@ -23,7 +24,7 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
     setTitle(initialValues.title);
     setDescription(initialValues.description);
     setBody(initialValues.body);
-    setTagList(initialValues.tagList);
+    setTagList(initialValues.tagList.join(' '));
   }, [initialValues]);
 
   return (
@@ -31,7 +32,7 @@ const ArticleForm = ({onSubmit, errors, initialValues}) => {
       <div className='container page'>
         <div className='row'>
           <div className='col-md-10 offset-md-1 col-xs-12'>
-            BackendErrors
+            {errors && <BackendErrorMessages backendErrors={errors}/>}
             <form onSubmit={handleSubmit}>
               <fieldset>
                 <fieldset className='form-group'>

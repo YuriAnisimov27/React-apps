@@ -8,7 +8,7 @@ const CreateArticle = () => {
     title: 'Default Article Title',
     description: '',
     body: '',
-    tagList: []
+    tagList: ['foo', 'bar']
   };
   const handleSubmit = article => {
     console.log('handle submit', article);
