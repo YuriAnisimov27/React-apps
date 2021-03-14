@@ -5,6 +5,7 @@ import Authentication from './authentication';
 import TagFeed from './tagFeed';
 import YourFeed from './yourFeed';
 import CreateArticle from './createArticle';
+import EditArticle from './editArticle';
 
 
 const Routes = () => {
@@ -12,6 +13,7 @@ const Routes = () => {
     <Switch>
       <Route path='/' component={GlobalFeed} exact/>
       <Route path='/articles/new' component={CreateArticle}/>
+      <Route path='/articles/:slug/edit' component={EditArticle}/>
       <Route path='/feed' component={YourFeed}/>
       <Route path='/tags/:slug' component={TagFeed}/>
       <Route path='/login' component={Authentication}/>
