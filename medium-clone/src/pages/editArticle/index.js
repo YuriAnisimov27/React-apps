@@ -1,10 +1,12 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import useFetch from '../../hooks/useFetch';
 import ArticleForm from '../../components/article';
 import {Redirect} from 'react-router-dom';
+import {CurrentUserContext} from '../../context/currentUser';
 
 
 const EditArticle = ({match}) => {
+  const [currentUserState] = useContext(CurrentUserContext);
   const slug = match.params.slug;
   const apiUrl = `/articles/${slug}`;
   const [{response: fetchArticleResponse}, doFetchArticle] = useFetch(apiUrl);
@@ -46,6 +48,10 @@ const EditArticle = ({match}) => {
 
     setIsSuccessfulSubmit(true);
   }, [updateArticleResponse]);
+
+  if (currentUserState.isLoggedIn === false) {
+    return <Redirect to={'/'}/>;
+  }
 
   if (isSuccessfulSubmit) {
     return <Redirect to={`/articles/${slug}`}/>;
