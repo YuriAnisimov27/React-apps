@@ -2,6 +2,8 @@ import {useState, useContext, useEffect} from 'react';
 import {CurrentUserContext} from '../../context/currentUser';
 import useFetch from '../../hooks/useFetch';
 import BackendErrorMessages from '../../components/backendErrorMessages';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import {Redirect} from 'react-router-dom';
 
 
 const Settings = () => {
@@ -14,6 +16,9 @@ const Settings = () => {
   const [bio, setBio] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const [, setToken] = useLocalStorage('token');
+  const [isSuccessfulLogout, setIsSuccessfulLogout] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,8 +38,12 @@ const Settings = () => {
     });
   };
 
-  const logout = () => {
-    console.log('logout');
+  const logout = (event) => {
+    event.preventDefault();
+
+    setToken('');
+    dispatch({type: 'LOGOUT'});
+    setIsSuccessfulLogout(true);
   };
 
   useEffect(() => {
@@ -55,6 +64,10 @@ const Settings = () => {
 
     dispatch({type: 'SET_AUTHORIZED', payload: response.user});
   }, [response, dispatch]);
+
+  if (isSuccessfulLogout) {
+    return <Redirect to='/'/>;
+  }
 
   return (
     <div className='settings-page'>

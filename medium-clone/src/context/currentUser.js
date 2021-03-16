@@ -14,7 +14,6 @@ const reducer = (state, action) => {
         ...state,
         isLoading: true
       };
-
     case 'SET_AUTHORIZED':
       return {
         ...state,
@@ -27,6 +26,12 @@ const reducer = (state, action) => {
         ...state,
         isLoggedIn: false
       };
+    case 'LOGOUT':
+      return {
+        ...initialState,
+        isLoggedIn: false
+      };
+
     default:
       return state;
   }
