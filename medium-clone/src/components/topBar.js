@@ -23,8 +23,15 @@ const TopBar = () => {
             <>
               <li className='nav-item'>
                 <NavLink className='nav-link' to='/articles/new'>
-                  <i className='ion-compose'></i>
+                  <i className='ion-compose'/>
                   &nbsp; New Post
+                </NavLink>
+              </li>
+
+              <li className='nav-item'>
+                <NavLink className='nav-link' to='/settings'>
+                  <i className='ion-gear-a'/>
+                  &nbsp; Settings
                 </NavLink>
               </li>
 
