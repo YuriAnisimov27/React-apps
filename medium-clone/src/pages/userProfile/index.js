@@ -54,6 +54,7 @@ const UserProfile = ({match, location}) => {
               username={response.profile.username}
               location={location}
               isFavorites={isFavorites}
+              url={match.url}
             />
 
           </div>
