@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import useFetch from '../../hooks/useFetch';
 import {NavLink} from 'react-router-dom';
+import UserArticles from './components/userArticles';
 
 
 const UserProfile = ({match, location}) => {
@@ -48,6 +49,13 @@ const UserProfile = ({match, location}) => {
                 </li>
               </ul>
             </div>
+
+            <UserArticles
+              username={response.profile.username}
+              location={location}
+              isFavorites={isFavorites}
+            />
+
           </div>
         </div>
       </div>
